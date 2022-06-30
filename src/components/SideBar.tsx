@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { api } from "../services/api";
 
 interface SideBarProps {
-  genres: GenreResponseProps[];
   selectedGenreId: number;
-  setGenres: ([]) => void;
   setSelectedGenreId: (id: number) => void
 }
 
-export function SideBar({ genres, setGenres, setSelectedGenreId, selectedGenreId }: SideBarProps) {
+export function SideBar({ setSelectedGenreId, selectedGenreId }: SideBarProps) {
+  const [genres, setGenres] = useState<GenreResponseProps[]>([]);
+  
   function handleClickButton(id: number) {
     setSelectedGenreId(id);
   }
